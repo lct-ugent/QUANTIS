@@ -1,0 +1,26 @@
+RF_locations,N:\Setup\BSSC\Users\Calibration_factors
+RF_GCxGC,GCxGC_Response_copy.xlsx
+RF-RGA-FID,RGA_FID_Response_18122015.xlsx
+RF-RGA-TCD,RGA_TCD_Response_nC5H11OH_18122015.xlsx
+EXPERIMENTAL_name,propane_DMDS
+RGA_location,N:\Setup\BSSC\Users\MirrorData\EA12C301\RGA\Data
+GCxGC_FID_location,N:\Setup\BSSC\Users\MirrorData\EA12C304\FID\Online
+Experimental_filename,20151223- propane 50ppm DMDS
+LoggingFile_location,N:\Setup\BSSC\Users\MirrorData\EA12C301\Logging\
+Reactor,BSSC_metal
+Process_SCD,FALSE
+Process_LOA,FALSE
+Process_NCD,FALSE
+GCxGC_SCD_location,N:\Setup\BSSC\Users\MirrorData\EA12C304\FID\Online
+GCxGC_NCD_location,N:\Setup\BSSC\Users\MirrorData\EA12C304\FID\Online
+Feed_1,C3H8
+Diluent_1,H2O
+AAA_Researcher_exp,Sri Bala
+AAA_Researcher_proc,Steffen
+Confidential,no
+Published,no
+Reliability_1_to_5,1
+Remarks,My first experiment
+Pressures_bara,1.7
+Mass_spectrum_available,no
+Campaign_kinetic,kinetic
