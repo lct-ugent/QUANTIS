@@ -3,8 +3,6 @@ Helps to visualise the effluent data of experimental setups.
 Creates input files for the CHEMKINParallellizer and COILSIM1DParallellizer for the performed experiments.
 Enables comparison between simulation and experiment.
 
-More information can be found in the powerpoint presentation 'N:\Project\918-Experimental set-ups'
-
 ## Requirements
 Install python 3+ via anaconda: https://www.continuum.io/downloads
 Install the Quantis conda environment from the "environment.yaml" file located in the main folder of the Quantis:
@@ -23,12 +21,12 @@ Add python to your user path (if you didn't check to add it via Anaconda).
 
 ### Necessary input
 The input for the `GC_Processor_HDF5` of **Quantis** are the integrated RGA, GCxGC, (LOA) data (resulting excel files).
-These are stored in the appropriate N:/Setup/MirrorData folder.
+These are stored in the appropriate folders named RGA, GCxGC, and (optionally) LOA.
 The program gets his input from two '.csv' files: conditions and gen_configs (Examples of both can be found in the working example folder.)
 If the older '*name*.xml' file is given as input, the two '.csv' files are partially created.
 
 The 'conditions_*name*.csv' has the following outline:
-Each row depicts a single datapoint of the experiment and each collumn represents the following information about the datapoint:
+Each row depicts a single datapoint of the experiment and each column represents the following information about the datapoint:
  - Name
  - Time
  - FeedRate (g/h) of the hydrocarbon in: 'Feed_*Hydrocarbon*_FeedRate'
@@ -36,9 +34,9 @@ Each row depicts a single datapoint of the experiment and each collumn represent
  - FileName of the corresponding GCxGC data 
  - FeedRate (g/h) of the Primary Internal Standard in: 'Feed_PrimaryInternalStandard_FeedRate'
  - Name of the Primary Internal Standard
- - FileName of the corresponding RGA-FID
- - FileName of the corresponding RGA-TCD-L
- - FileName of the corresponding RGA-TCD-R
+ - FileName of the corresponding RGA-FID (detector 1)
+ - FileName of the corresponding RGA-TCD-L (detector 2)
+ - FileName of the corresponding RGA-TCD-R (detector 3)
  - Info of the Secondary Internal Standard
  - Name of the Secondary Internal Standard
  - Temperature
@@ -66,8 +64,8 @@ Each row depicts a single datapoint of the experiment and each collumn represent
  - Name of the diluent
  - Start time of the experiment: *DD/MM/YYYY HH:MM*
  - End time of the experiment: *DD/MM/YYYY HH:MM*
- - Name of the Researcher who did the experiments
- - Name of the Researcher who did the processing
+ - Name of the Researcher who performed the experiments
+ - Name of the Researcher who performed the processing
  - Confidential data: yes or no
  - Published data: yes or no
  - Reliability factor: 1-5
@@ -115,14 +113,14 @@ An example of this '.xml' file can be found in the GC_processor GitHub.
 - Visualize the experimental results
 - Simulate the experimental conditions in either CHEMKIN or COILSIM1D with the CHEMKINParallellizer or COILSIMParallellizer respectively.
 - Compare the simulations with the experiments
-The first input field is to insert the already created HDF5 file or the input.csv and gen_configs.csv. The latter input is to include the CHEMKIN reaction network names. Mind that the networks should be 'N:\Project\918-Experimental set-ups\CHEMKIN networks' and an InChI converter should be stored in 'N:\Project\918-Experimental set-ups\InChI_converters'.
+The first input field is to insert the already created HDF5 file or the input.csv and gen_configs.csv. The latter input is to include the CHEMKIN reaction network names. Mind that the reaction networks should be stored in the folder 'CHEMKIN networks' and an InChI converter should be stored in the folder 'InChI_converters'. Note that performing CHEMKIN and/or COILSIM1D simulations requires additional programs (not public).
 
 #### Create HDF5 file
-The library response files are  necessary to create the HDF5 file. These response files are stored centrally under 'N:\Project\918-Experimental set-ups\GC_library'. The GCxGC library is a shared Excel document where every researcher can add their missing components. Remind that this document is used by other researchers as well, so make sure that the data that is added is correct!
+The library response files are necessary to create the HDF5 file. These response files are stored centrally under 'N:\Project\918-Experimental set-ups\GC_library' or under a local folder named 'GC_library'. The GCxGC library is a shared Excel document where every researcher can add their missing components. Remind that this document is used by other researchers as well, so make sure that the data that is added is correct!
 
-The processed GC data is stored on the N: drive in the mirrorData and is read from there. The folders of all the GC's should have the same folder name. (e.g. the folder in which the data is stored for the RGA should have the same name as the folder that includes the GCxGC-FID data)
+The processed GC data is stored on the N: drive in the mirrorData and is read from there or from a local folder called 'GCxGC'. The folders of all the GC's should have the same folder name. (e.g. the folder in which the data is stored for the RGA should have the same name as the folder that includes the GCxGC-FID data)
 
-By applying the date and time of injection, the program searches for the logging files on the N: drive in the setup folder (mirrored from the lab pc every night)
+By applying the date and time of injection, the program searches for the logging files on the N: drive in the setup folder (mirrored from the lab pc every night) or on a local folder 'logging'.
 
 #### Visualize results
 Several graphs are being generated to conclude what injections are trustworthy.
@@ -141,9 +139,9 @@ Several graphs are being generated to conclude what injections are trustworthy.
 - Minor products vs temperature (wt.%)
 
 #### Simulate experiment
-The CHEMKINParallellizer is being run. The folder 'N:\Project\918-Experimental set-ups\ChemkinParallellizer' is copied to the users desktop and from there the parallellizer is run.
+The CHEMKINParallellizer (not public) is being run. The folder 'N:\Project\918-Experimental set-ups\ChemkinParallellizer' is copied to the users desktop and from there the parallellizer is run.
 
-The COILSIM1DParallellizer is also being run.
+The COILSIM1DParallellizer (not public) is also being run.
 #### Compare simulations and experiment
 Creates a comparison file in the folder 'Comparison' and comparison figures (conversion vs T, compound vs conversion, parity plot per compound) are created. Simulation summaries need to be stored in the 'simulationSummaries' folder.
 
